@@ -1,12 +1,17 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { MaterialReactTable, useMaterialReactTable } from 'material-react-table';
 
-const data = [
-    { name: "John", email: "john@email.com", phone: "55 99999-9999"},
-    { name: "Sara", email: "sara@email.com", phone: "55 88888-8888"},
-]
+const UsersTable = ({ userData }) => {
+    const [data, setData] = useState([
+        { name: "John", email: "john@email.com", phone: "55 99999-9999"},
+        { name: "Sara", email: "sara@email.com", phone: "55 88888-8888"},
+    ]);
+    useEffect(() => {
+        if (userData)
+            handleNewUserData(userData);
 
-export default function UsersTable() {
+    }, [userData]);
+
     const columns = useMemo(
         () => [
             {
@@ -34,9 +39,16 @@ export default function UsersTable() {
         enableRowSelection: true,
         enableColumnOrdering: true,
         enableGlobalFilter: true
-    })
+    });
+
+    const handleNewUserData = (newUserData) => {
+        const userData = [...data, newUserData]
+        setData(userData);
+    }
 
   return (
         <MaterialReactTable table={table} />
   )
 };
+
+export default UsersTable;
