@@ -35,7 +35,7 @@ const NearestCustomers = ({ onClose, customerList }) => {
                                     </div>
                                     <div className='card-content'>
                                         <p>Posição X: <strong>{ item.x }</strong></p>
-                                        <p>Posição Y: <strong>{ item.x }</strong></p>
+                                        <p>Posição Y: <strong>{ item.y }</strong></p>
                                     </div>
                                 </div>
                                 { index <= customerListData.length - 2 &&

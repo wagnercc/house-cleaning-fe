@@ -10,10 +10,17 @@
     background-color: #53535383;
 }
 
-.modal-wrapper {
+.form-title {
+    font-size: 22px;
+    margin-bottom: 0;
+    font-weight: 700;
+    color: #494949;
+}
+
+.user-modal-wrapper {
     position: relative;
     width: 500px;
-    height: 300px;
+    height: 360px;
     margin: 0 auto;
     border-radius: 8px;
     background-color: #fefefe;
@@ -34,10 +41,25 @@
 
 .form-wrapper {
     margin-top: 45px;
+    justify-content: center;
 }
 
-button {
-    margin-top: 25px;
+.position-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.position-wrapper > input {
+    width: 180px;
+    margin: 0 5px 0 5px;
+}
+
+label {
+    display: inline-block;
+    width: 60px;
+    margin-right: 10px;
+    text-align: left;
+    font-size: 14px;
 }
 
 input {
@@ -51,7 +73,7 @@ input {
     background: transparent;
     color: rgb(74 76 79);;
     transition: border .3s ease-in-out;
-    margin-bottom: 18px;
+    margin-bottom: 10px;
 }
 
 input:hover {

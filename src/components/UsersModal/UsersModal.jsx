@@ -8,6 +8,8 @@ const UsersModal = ({ onClose }) => {
     const [nameInput, setNameInput] = useState('');
     const [emailInput, setEmailInput] = useState('');
     const [phoneInput, setPhoneInput] = useState('');
+    const [positionX, setPositionX] = useState('');
+    const [positionY, setPositionY] = useState('');
     const notify = (message) => toast(message);
 
     const fadeIn = useSpring({
@@ -19,9 +21,11 @@ const UsersModal = ({ onClose }) => {
         const formData = {
             name: nameInput,
             email: emailInput,
-            phone: phoneInput
+            phone: phoneInput,
+            positionX: positionX,
+            positionY: positionY
         };
-        if (!(nameInput || emailInput || phoneInput)) {
+        if (!(nameInput || emailInput || phoneInput || positionX || positionY)) {
             notify("Por favor, preencha todos os campos!");
         }
 
@@ -36,27 +40,53 @@ const UsersModal = ({ onClose }) => {
         <>
             <div className="modal-container">
                 <ToastContainer theme="dark" />
-                <animated.div style={fadeIn} className="modal-wrapper">
+                <animated.div style={fadeIn} className="user-modal-wrapper">
+                    <h3 className='form-title'>Cadastro de Clientes</h3>
                     <span className='close-icon' onClick={handleIconClose}>X</span>
                     <div className='form-wrapper'>
-                        <input 
-                            type="text"
-                            placeholder="Insira o nome"
-                            value={nameInput}
-                            onChange={(e) => setNameInput(e.target.value)}
-                        />
-                        <input 
-                            type="email"
-                            placeholder="Insira o email"
-                            value={emailInput}
-                            onChange={(e) => setEmailInput(e.target.value)}
-                        />
-                        <input 
-                            type="text"
-                            placeholder="Insira o telefone"
-                            value={phoneInput}
-                            onChange={(e) => setPhoneInput(e.target.value)}
-                        />
+                        <div>
+                            <label>Nome</label>
+                            <input 
+                                type="text"
+                                placeholder="Insira o nome"
+                                value={nameInput}
+                                onChange={(e) => setNameInput(e.target.value)}
+                            />
+                        </div>
+                        <div>
+                            <label>Email</label>
+                            <input 
+                                type="email"
+                                placeholder="Insira o email"
+                                value={emailInput}
+                                onChange={(e) => setEmailInput(e.target.value)}
+                            />
+                        </div>
+                        <div>
+                            <label>Telefone</label>
+                            <input 
+                                type="text"
+                                placeholder="Insira o telefone"
+                                value={phoneInput}
+                                onChange={(e) => setPhoneInput(e.target.value)}
+                            />
+                        </div>
+                        <div className='position-wrapper'>
+                            <input 
+                                type="text"
+                                placeholder="Insira a posição X"
+                                value={positionX}
+                                maxLength={15}
+                                onChange={(e) => setPositionX(e.target.value)}
+                            />
+                            <input 
+                                type="text"
+                                placeholder="Insira a posição Y"
+                                value={positionY}
+                                maxLength={15}
+                                onChange={(e) => setPositionY(e.target.value)}
+                            />
+                        </div>
                     </div>
                     <button onClick={handleClose}>Salvar</button>
                 </animated.div>
