@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { useSpring, animated } from 'react-spring';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './UsersModal.css'
 
 const UsersModal = ({ onClose }) => {
     const [nameInput, setNameInput] = useState('');
     const [emailInput, setEmailInput] = useState('');
     const [phoneInput, setPhoneInput] = useState('');
+    const notify = (message) => toast(message);
 
     const fadeIn = useSpring({
         opacity:  1,
@@ -18,6 +21,9 @@ const UsersModal = ({ onClose }) => {
             email: emailInput,
             phone: phoneInput
         };
+        if (!(nameInput || emailInput || phoneInput)) {
+            notify("Por favor, preencha todos os campos!");
+        }
 
         onClose(formData);
     };
@@ -29,6 +35,7 @@ const UsersModal = ({ onClose }) => {
     return (
         <>
             <div className="modal-container">
+                <ToastContainer theme="dark" />
                 <animated.div style={fadeIn} className="modal-wrapper">
                     <span className='close-icon' onClick={handleIconClose}>X</span>
                     <div className='form-wrapper'>

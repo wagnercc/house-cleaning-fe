@@ -1,0 +1,97 @@
+.modal-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background-color: #53535383;
+    font-family: "Arial";
+}
+
+.modal-wrapper {
+    position: relative;
+    width: 90vw;
+    height: auto;
+    min-height: 300px;
+    max-height: 85vh;
+    margin: 0 auto;
+    border-radius: 8px;
+    background-color: #fefefe;
+    box-shadow: 2px 2px 3px 0px rgba(130,130,130,1);
+    overflow: auto;
+    z-index: 999999;
+}
+
+.close-icon {
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #4a5152;
+    user-select: none;
+}
+
+.form-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    padding: 5px 15px 0 15px;
+    gap: 9px;
+    overflow: auto;
+}
+
+.form-title {
+    font-size: 22px;
+    margin-bottom: 0;
+    font-weight: 700;
+    color: #494949;
+}
+
+.card-wrapper {
+    width: 150px;
+    height: 85px;
+    padding: 1rem;
+    border-radius: 8px;
+    background: #f1f1f3;
+    box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 3%);
+    cursor: pointer;
+    text-align: start;
+}
+
+.card-separator {
+    display: block;
+    position: relative;
+    top: 75px;
+    right: 0;
+    width: 30px;
+    height: 2px;
+    background: #6585d6;
+}
+
+.card-header {
+    font-weight: 700;
+    color: #6585d6;
+    border-bottom: 1px solid #cecece;
+    padding: 5px 0 5px 0;
+}
+
+.card-content {
+    display: grid;
+    margin-top: 8px;
+}
+
+p {
+    margin: 0 0 5px 0;
+    font-size: 14px;
+    color: #424642ee;
+}
+
+strong {
+    color: #6585d6;
+    font-weight: 700;
+}

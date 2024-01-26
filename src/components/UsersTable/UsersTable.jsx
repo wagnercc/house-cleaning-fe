@@ -2,10 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { MaterialReactTable, useMaterialReactTable } from 'material-react-table';
 
 const UsersTable = ({ userData }) => {
-    const [data, setData] = useState([
-        { name: "John", email: "john@email.com", phone: "55 99999-9999"},
-        { name: "Sara", email: "sara@email.com", phone: "55 88888-8888"},
-    ]);
+    const [data, setData] = useState([]);
     useEffect(() => {
         if (userData)
             handleNewUserData(userData);
@@ -17,7 +14,6 @@ const UsersTable = ({ userData }) => {
             {
                 accessorKey: 'name', //simple recommended way to define a column
                 header: 'Name',
-                muiTableHeadCellProps: { style: { color: 'green' } }, //custom props
                 enableHiding: true, //disable a feature for this column
             },
             {
@@ -42,8 +38,10 @@ const UsersTable = ({ userData }) => {
     });
 
     const handleNewUserData = (newUserData) => {
-        const userData = [...data, newUserData]
-        setData(userData);
+        data.filter(f => f.name !== newUserData.name && f.email !== newUserData.email);
+        const uniqueSet = new Set([...data, ...newUserData]);
+        const unionUserData = Array.from(uniqueSet);
+        setData(unionUserData);
     }
 
   return (
